@@ -2,13 +2,13 @@ import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/types'
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
-  const { deployments, getNamedAccounts } = hre;
+  const { deployments, getNamedAccounts, ethers } = hre;
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  await deploy('Greeter', {
+  await deploy('ERC20Token', {
     from: deployer,
-    args: ['Hello'],
+    args: [],
     log: true,
     deterministicDeployment: true,
   });
